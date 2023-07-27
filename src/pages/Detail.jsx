@@ -7,20 +7,18 @@ const Detail = () => {
   const navigate = useNavigate();
   //Parameter(파라미터) 값을 URL을 통해서 넘겨서 넘겨받은 페이지에서 사용할 수 있도록 도와준다.
   const todos = useSelector((state) => state.todos);
-  const todo = todos.filter((todo) => todo.id === id);
-
-  console.log("id", id);
-  console.log("todos", todos);
-  console.log("todo", todo);
+  const todo = todos.find((todo) => todo.id === id);
   return (
-    <div key={todo.id}>
-      <p>{todo.id} </p>
-      <p> {todo.title} </p>
-      <p> {todo.content}</p>
-      <p>{todo.isDone.toString()}</p>
-
-      <button onClick={() => navigate("/")}>이전으로 돌아가기</button>
-    </div>
+    <>
+      {/* 빈태그 좀 빼먹지말기 */}
+      <div key={todo.id}>
+        <p>{todo.id} </p>
+        <p> {todo.title} </p>
+        <p> {todo.content}</p>
+        <p>{todo.isDone.toString()}</p>
+        <button onClick={() => navigate("/")}>이전으로 돌아가기</button>
+      </div>
+    </>
   );
 };
 
