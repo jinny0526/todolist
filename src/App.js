@@ -1,13 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useSelector } from "react-redux";
 import Router from "./shared/Router";
 
 function App() {
-  const todos = useSelector((state) => state.todos);
-  //const todos=useSelectoe(fuction(state){return state.todos})
-
-  return <Router />;
+  const todos = useSelector(function (state) {
+    return state.todos;
+  });
+  console.log("todos", todos);
+  return (
+    <>
+      <Router></Router>;
+    </>
+  );
 }
 
 export default App;
