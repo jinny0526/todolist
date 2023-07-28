@@ -28,7 +28,8 @@ const Todo = () => {
               <p> {todo.content}</p>
               <p>{todo.isDone.toString()}</p>
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   dispatch({
                     type: "SWITCH_TODO",
                     payload: todo.id,
